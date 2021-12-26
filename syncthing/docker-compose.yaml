@@ -1,0 +1,16 @@
+version: "3"
+services:
+  syncthing:
+    image: syncthing/syncthing
+    container_name: syncthing
+    hostname: syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /opt/syncthing:/var/syncthing
+    ports:
+      - 8384:8384
+      - 22000:22000
+      - 22067:22067
+    restart: unless-stopped

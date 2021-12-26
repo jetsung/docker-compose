@@ -1,0 +1,11 @@
+version: '3'
+services:
+  transfer:
+    image: dutchcoders/transfer.sh:latest
+    container_name: transfer
+    volumes:
+      - /etc/localtime:/etc/localtime
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    command: ["--provider", "local", "--basedir", "/tmp/"]

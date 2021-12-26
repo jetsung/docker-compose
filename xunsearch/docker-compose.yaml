@@ -1,0 +1,11 @@
+version: '3'
+services:
+  xunsearch:
+    image: docker.io/hightman/xunsearch:latest
+    container_name: xunsearch
+    volumes:
+      - /opt/xunsearch:/usr/local/xunsearch/data
+    ports:
+      - 18383:8383 
+      - 18384:8384
+    restart: unless-stopped

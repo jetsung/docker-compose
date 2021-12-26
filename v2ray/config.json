@@ -1,0 +1,46 @@
+{
+    "inbounds": [{
+        "port": 31980,
+        "protocol": "vmess",
+        "settings": {
+            "clients": [{
+                "id": "e44fefd3-38bc-4eef-bba9-e63cbdb43e99",
+                "level": 1,
+                "alterId": 64
+            }]
+        }
+    },
+    {
+        "port": 31984,
+        "protocol": "vmess",
+        "settings": {
+            "clients": [{
+                "id": "e44fefd3-38bc-4eef-bba9-e63cbdb43e99",
+                "alterId": 64
+            }]
+        },
+        "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+                "path": "/cf"
+            }
+        }
+    },
+    {
+        "protocol": "socks",
+        "port": 31981,
+        "settings": {
+            "auth": "password",
+            "accounts": [{
+                "user": "test",
+                "pass": "123456"
+            }],
+            "udp": false,
+            "ip": "127.0.0.1",
+            "userLevel": 0
+        }
+    }],
+    "outbounds": [{
+        "protocol": "freedom"
+    }]
+}

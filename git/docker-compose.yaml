@@ -1,0 +1,13 @@
+version: '3'
+services:
+  git:
+    image: devcto/git:latest
+    container_name: git-alpine
+    environment:
+      - GIT_USER=example
+      - GIT_EMAIL=dev@example.com
+    volumes:
+      - ./init.sh:/root/init.sh
+      - ./.ssh:/root/.ssh
+      - /work_code:/srv
+    restart: unless-stopped
