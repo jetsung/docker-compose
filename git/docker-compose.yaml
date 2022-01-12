@@ -7,7 +7,9 @@ services:
       - GIT_USER=example
       - GIT_EMAIL=dev@example.com
     volumes:
-      - ./init.sh:/root/init.sh
+      - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh
       - /work_code:/srv
     restart: unless-stopped
+    command: -D
+    
