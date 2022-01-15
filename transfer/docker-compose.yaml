@@ -3,8 +3,8 @@ services:
   transfer:
     image: dutchcoders/transfer.sh:latest
     container_name: transfer
-    volumes:
-      - /etc/localtime:/etc/localtime
+    environment:
+      - TZ=CST-8
     ports:
       - "8080:8080"
     restart: unless-stopped

@@ -3,9 +3,10 @@ services:
   wiz:
     image: wiznote/wizserver:latest
     container_name: wiz
+    environment:
+      - TZ=CST-8
     volumes:
-      - /opt/wiz:/wiz/storage
-      - /etc/localtime:/etc/localtime
+      - ./data:/wiz/storage
     ports:
       - "39080:80"
       - "39269:9269/udp"

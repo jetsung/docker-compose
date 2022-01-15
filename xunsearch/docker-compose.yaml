@@ -3,8 +3,10 @@ services:
   xunsearch:
     image: docker.io/hightman/xunsearch:latest
     container_name: xunsearch
+    environment:
+      - TZ=CST-8
     volumes:
-      - /opt/xunsearch:/usr/local/xunsearch/data
+      - ./data:/usr/local/xunsearch/data
     ports:
       - 18383:8383 
       - 18384:8384

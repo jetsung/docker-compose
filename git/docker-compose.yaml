@@ -3,9 +3,6 @@ services:
   git:
     image: devcto/git:latest
     container_name: git-alpine
-    environment:
-      - GIT_USER=example
-      - GIT_EMAIL=dev@example.com
     volumes:
       - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh

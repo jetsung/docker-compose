@@ -3,6 +3,12 @@ services:
   qinglong:
     image: whyour/qinglong:latest
     container_name: qinglong
+    hostname: qinglong
+    environment:
+      - ENABLE_HANGUP=true
+      - ENABLE_TG_BOT=true
+      - ENABLE_WEB_PANEL=true
+      - TZ=CST-8
     volumes:
         - /opt/qinglong/config:/ql/config
         - /opt/qinglong/db:/ql/db 
@@ -13,12 +19,6 @@ services:
         - /opt/qinglong/jbot:/ql/jbot             
     ports:
       - 5700:5700
-    hostname: qinglong
-    environment:
-      - ENABLE_HANGUP=true
-      - ENABLE_TG_BOT=true
-      - ENABLE_WEB_PANEL=true
-      - TZ=CST-8
     restart: unless-stopped
 
 
