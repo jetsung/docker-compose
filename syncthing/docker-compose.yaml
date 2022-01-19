@@ -7,8 +7,9 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=CST-8
     volumes:
-      - /opt/syncthing:/var/syncthing
+      - ./data:/var/syncthing
     ports:
       - 8384:8384
       - 22000:22000

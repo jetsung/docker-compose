@@ -6,8 +6,9 @@ services:
     container_name: vaultwarden
     environment:
       - WEBSOCKET_ENABLED=true  # Enable WebSocket notifications.
+      - TZ=CST-8
     volumes:
-      - /opt/vaultwarden:/data
+      - ./data:/data
     ports:
       - 39081:80
     restart: unless-stopped      
