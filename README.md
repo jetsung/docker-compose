@@ -4,7 +4,8 @@
 
 - acme
 - emqx   
-- git   
+- git 
+- gitlab-runner
 - mysql   
 - qinglong   
 - syncthing  
