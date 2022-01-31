@@ -3,6 +3,7 @@
 我的 Docker Compose 文件夹
 
 - acme
+- bark
 - emqx   
 - git 
 - gitlab-runner

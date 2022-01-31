@@ -10,13 +10,13 @@ services:
       - ENABLE_WEB_PANEL=true
       - TZ=CST-8
     volumes:
-        - /opt/qinglong/config:/ql/config
-        - /opt/qinglong/db:/ql/db 
-        - /opt/qinglong/log:/ql/log 
-        - /opt/qinglong/repo:/ql/repo 
-        - /opt/qinglong/raw:/ql/raw 
-        - /opt/qinglong/scripts:/ql/scripts 
-        - /opt/qinglong/jbot:/ql/jbot             
+        - ./data/config:/ql/config
+        - ./data/db:/ql/db 
+        - ./data/log:/ql/log 
+        - ./data/repo:/ql/repo 
+        - ./data/raw:/ql/raw 
+        - ./data/scripts:/ql/scripts 
+        - ./data/jbot:/ql/jbot             
     ports:
       - 5700:5700
     restart: unless-stopped

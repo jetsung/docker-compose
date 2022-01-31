@@ -61,8 +61,9 @@ server {
   
     server_name example.com;
     
+    ## 此处的路径与 websocket 的 path 路径需要一致
     location / {
-        #转发到http://websocket
+        #转发到 http://websocket
         proxy_pass http://websocket;
         proxy_read_timeout 300s;
         proxy_send_timeout 300s;

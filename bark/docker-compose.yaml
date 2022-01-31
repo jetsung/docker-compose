@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  bark-server:
+    image: finab/bark-server
+    container_name: bark-server
+    environment:
+      - TZ=CST-8
+    volumes:
+      - ./data:/data
+    ports:
+      - "30001:8080"
+    restart: unless-stopped
