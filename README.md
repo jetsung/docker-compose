@@ -8,7 +8,8 @@
 - git 
 - gitlab-runner
 - mysql   
-- qinglong   
+- qinglong 
+- simple-torrent  
 - syncthing  
 - transfer    
 - vaultwarden   

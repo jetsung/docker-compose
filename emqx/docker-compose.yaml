@@ -1,8 +1,10 @@
 version: '3'
 services:
   emqx:
-    container_name: emqx
     image: emqx/emqx:latest
+    container_name: emqx
+    environment:
+      - TZ=CST-8
     ports:
       - "1883:1883"
       - "8081:8081"
