@@ -1,0 +1,23 @@
+## 配合 adminer 使用
+
+version: '3'
+
+services:
+
+  mysql:
+    image: mariadb
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - db
+
+networks:
+  db:
+    name: mariadb
+    external: false

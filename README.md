@@ -7,7 +7,7 @@
 - emqx   
 - git 
 - gitlab-runner
-- mysql   
+- mariadb (mysql)   
 - qinglong 
 - simple-torrent  
 - syncthing  

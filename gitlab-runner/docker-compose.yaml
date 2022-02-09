@@ -3,15 +3,15 @@ services:
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
     container_name: gitlab-runner
+    restart: unless-stopped
     volumes:
       #- /var/run/docker.sock:/var/run/docker.sock
       - /run/user/1001/docker.sock:/var/run/docker.sock
       - config:/etc/gitlab-runner
     environment:
+      - TZ=CST-8
       - LANG=zh_CN.UTF-8
       - LC_ALL=zh_CN.UTF-8
-      - TZ=Asia/Shanghai
-    restart: unless-stopped
 volumes:
     config:
 

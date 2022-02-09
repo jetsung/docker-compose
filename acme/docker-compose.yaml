@@ -3,12 +3,12 @@ services:
   acme:
     image: neilpang/acme.sh
     container_name: acme.sh
+    restart: unless-stopped
     environment:
       - Ali_Key=${Ali_Key}
       - Ali_Secret=${Ali_Secret}
     volumes:
       - ./out:/acme.sh
       - ./ssl:/data/ssl
-    restart: unless-stopped
     command: ["daemon"]
 

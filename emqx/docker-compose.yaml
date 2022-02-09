@@ -3,6 +3,7 @@ services:
   emqx:
     image: emqx/emqx:latest
     container_name: emqx
+    restart: unless-stopped
     environment:
       - TZ=CST-8
     ports:
@@ -12,4 +13,3 @@ services:
       - "8084:8084"
       - "8883:8883"
       - "18083:18083"
-    restart: unless-stopped

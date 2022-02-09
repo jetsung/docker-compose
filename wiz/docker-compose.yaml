@@ -3,12 +3,13 @@ services:
   wiz:
     image: wiznote/wizserver:latest
     container_name: wiz
+    restart: unless-stopped
     environment:
       - TZ=CST-8
     volumes:
       - ./data:/wiz/storage
     ports:
       - "127.0.0.1:30001:80"
+      - "39269:9269/tcp"
       - "39269:9269/udp"
-    restart: unless-stopped
 

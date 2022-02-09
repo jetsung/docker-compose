@@ -5,6 +5,7 @@ services:
   cloud-torrent:
     image: boypt/cloud-torrent
     container_name: cloud-torrent
+    restart: unless-stopped
     environment:
       - TZ=CST-8
     volumes:
@@ -12,4 +13,3 @@ services:
       - './torrents:/torrents'
     ports:
       - '3000:3000'
-    restart: unless-stopped

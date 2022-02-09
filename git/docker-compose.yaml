@@ -3,10 +3,10 @@ services:
   git:
     image: devcto/git:latest
     container_name: git-alpine
+    restart: unless-stopped
     volumes:
       - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh
       - /work_code:/srv
-    restart: unless-stopped
     command: -D
     
