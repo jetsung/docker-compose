@@ -13,5 +13,5 @@ services:
       
 networks:
   db:
-    name: mariadb
-    external: false
+    name: db
+    external: true

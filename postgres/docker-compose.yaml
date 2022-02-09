@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: 123456
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - db
+
+networks:
+  db:
+    name: db
+    external: true
+

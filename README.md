@@ -3,11 +3,14 @@
 我的 Docker Compose 文件夹
 
 - acme
+- adminer
 - bark
 - emqx   
 - git 
 - gitlab-runner
-- mariadb (mysql)   
+- mariadb 
+- mysql
+- postgres
 - qinglong 
 - simple-torrent  
 - syncthing  
