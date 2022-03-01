@@ -4,6 +4,7 @@
 
 - acme
 - adminer
+- aliyunpan-webdav
 - bark
 - emqx   
 - git 
