@@ -13,6 +13,7 @@
 - mysql
 - postgres
 - qinglong 
+- rsshub
 - simple-torrent  
 - syncthing  
 - transfer    
