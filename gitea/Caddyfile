@@ -1,0 +1,5 @@
+git.mydomain.com {
+  tls mygit@outlook.com
+  reverse_proxy server:3000
+}
+

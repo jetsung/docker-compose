@@ -9,6 +9,7 @@
 - drone
 - emqx   
 - git 
+- gitea
 - gitlab-runner
 - mariadb 
 - mysql
