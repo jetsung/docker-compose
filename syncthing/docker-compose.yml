@@ -1,11 +1,12 @@
+# https://github.com/syncthing/syncthing/blob/main/README-Docker.md
 version: "3"
 services:
   syncthing:
-    image: syncthing/syncthing
+    image: syncthing/syncthing:latest
     container_name: syncthing
     restart: unless-stopped
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
       - PUID=1000
       - PGID=1000
     volumes:

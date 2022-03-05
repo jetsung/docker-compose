@@ -4,9 +4,7 @@ services:
   webdav:
     image: tickstep/aliyunpan-webdav:latest
     container_name: aliyunpan-webdav
-    restart: always
-    ports:
-      - 23077:23077
+    restart: unless-stopped
     environment:
       - TZ=Asia/Shanghai
       # refresh token用于登录
@@ -21,3 +19,5 @@ services:
       - ALIYUNPAN_TRANSFER_URL_TYPE=1
       # 上传数据块大小，单位为KB，默认为1024KB，建议范围1024KB~10240KB
       - ALIYUNPAN_BLOCK_SIZE=10240
+    ports:
+      - 23077:23077

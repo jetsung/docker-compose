@@ -7,7 +7,7 @@ services:
     container_name: cloud-torrent
     restart: unless-stopped
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
     volumes:
       - './downloads:/downloads'
       - './torrents:/torrents'

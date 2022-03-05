@@ -6,6 +6,7 @@
 - adminer
 - aliyunpan-webdav
 - bark
+- drone
 - emqx   
 - git 
 - gitlab-runner

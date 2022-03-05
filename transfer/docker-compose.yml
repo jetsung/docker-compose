@@ -1,3 +1,4 @@
+# https://github.com/dutchcoders/transfer.sh
 version: '3'
 services:
   transfer:
@@ -5,7 +6,7 @@ services:
     container_name: transfer
     restart: unless-stopped
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
     ports:
       - "8080:8080"
     command: ["--provider", "local", "--basedir", "/tmp/"]

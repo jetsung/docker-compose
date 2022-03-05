@@ -1,13 +1,18 @@
+# https://github.com/hightman/xunsearch
 version: '3'
+
+volumes:
+  data:
+
 services:
   xunsearch:
     image: hightman/xunsearch:latest
     container_name: xunsearch
     restart: unless-stopped
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
     volumes:
-      - ./data:/usr/local/xunsearch/data
+      - data:/usr/local/xunsearch/data
     ports:
       - 18383:8383 
       - 18384:8384

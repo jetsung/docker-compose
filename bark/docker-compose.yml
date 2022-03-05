@@ -1,0 +1,17 @@
+# https://github.com/Finb/bark-server
+version: '3'
+
+volumes:
+  server-data:
+
+services:
+  bark:
+    image: finab/bark-server:latest
+    container_name: bark
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - server-data:/data
+    ports:
+      - "30001:8080"

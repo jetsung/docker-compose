@@ -1,3 +1,4 @@
+# https://github.com/emqx/emqx
 version: '3'
 services:
   emqx:
@@ -5,7 +6,7 @@ services:
     container_name: emqx
     restart: unless-stopped
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
     ports:
       - "1883:1883"
       - "8081:8081"

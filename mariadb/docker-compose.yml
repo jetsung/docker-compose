@@ -2,13 +2,19 @@
 
 version: '3'
 
+networks:
+  db:
+    name: db
+    external: true
+    
 services:
 
   mysql:
-    image: mariadb
+    image: mariadb:latest
     container_name: mariadb
     restart: unless-stopped
     environment:
+      TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./db:/var/lib/mysql
@@ -16,8 +22,3 @@ services:
       - 3306:3306
     networks:
       - db
-
-networks:
-  db:
-    name: db
-    external: true

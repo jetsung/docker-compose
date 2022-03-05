@@ -1,5 +1,10 @@
 version: '3'
 
+networks:
+  db:
+    name: db
+    external: true
+
 services:
 
   postgres:
@@ -7,6 +12,7 @@ services:
     container_name: postgres
     restart: unless-stopped
     environment:
+      TZ: Asia/Shanghai
       POSTGRES_PASSWORD: 123456
     volumes:
       - ./db:/var/lib/postgresql/data
@@ -14,9 +20,3 @@ services:
       - 5432:5432
     networks:
       - db
-
-networks:
-  db:
-    name: db
-    external: true
-

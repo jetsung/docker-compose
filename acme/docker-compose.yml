@@ -1,3 +1,4 @@
+# https://github.com/acmesh-official/acme.sh
 version: "3"
 services:
   acme:
@@ -5,6 +6,7 @@ services:
     container_name: acme.sh
     restart: unless-stopped
     environment:
+      - TZ=Asia/Shanghai
       - Ali_Key=${Ali_Key}
       - Ali_Secret=${Ali_Secret}
     volumes:

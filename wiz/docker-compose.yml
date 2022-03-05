@@ -1,3 +1,4 @@
+# https://www.wiz.cn/docker.html
 version: '3'
 services:
   wiz:
@@ -5,7 +6,7 @@ services:
     container_name: wiz
     restart: unless-stopped
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
     volumes:
       - ./data:/wiz/storage
     ports:

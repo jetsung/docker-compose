@@ -7,12 +7,15 @@ services:
     container_name: mysql
     restart: unless-stopped
     environment:
+      TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: 123456
 
   adminer:
     image: adminer
     container_name: adminer
     restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
     ports:
       - 8080:8080
       
@@ -21,6 +24,7 @@ services:
     container_name: phpmyadmin
     restart: unless-stopped
     environment:
-      - PMA_ARBITRARY=1
+      TZ: Asia/Shanghai
+      PMA_ARBITRARY: 1
     ports:
       - 8081:80

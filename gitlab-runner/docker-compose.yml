@@ -1,4 +1,9 @@
+# https://docs.gitlab.com/runner/install/docker.html
 version: "3"
+
+volumes:
+    config:
+    
 services:
   gitlab-runner:
     image: gitlab/gitlab-runner:latest
@@ -9,9 +14,7 @@ services:
       - /run/user/1001/docker.sock:/var/run/docker.sock
       - config:/etc/gitlab-runner
     environment:
-      - TZ=CST-8
+      - TZ=Asia/Shanghai
       - LANG=zh_CN.UTF-8
       - LC_ALL=zh_CN.UTF-8
-volumes:
-    config:
 
