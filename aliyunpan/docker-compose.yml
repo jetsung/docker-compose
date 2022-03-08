@@ -14,7 +14,7 @@ services:
       # webdav 登录密码
       - ALIYUNPAN_AUTH_PASSWORD=${ALIYUNPAN_AUTH_PASSWORD}
       # 指定网盘文件夹作为webdav服务根目录
-      - ALIYUNPAN_PAN_DIR=/webdav/
+      - ALIYUNPAN_PAN_DIR=${ALIYUNPAN_PAN_DIR}
       # 上传下载链接类型：1-默认 2-阿里ECS环境(ECS必须是经典网络类型)
       - ALIYUNPAN_TRANSFER_URL_TYPE=1
       # 上传数据块大小，单位为KB，默认为1024KB，建议范围1024KB~10240KB
