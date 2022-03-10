@@ -12,6 +12,7 @@
 - gitea
 - gitlab-runner
 - joplin
+- minio
 - mariadb 
 - mysql
 - postgres
