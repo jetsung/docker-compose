@@ -6,7 +6,7 @@ volumes:
 
 services:
     rsshub:
-        image: diygod/rsshub
+        image: diygod/rsshub:latest
         restart: unless-stopped
         environment:
             TZ: Asia/Shanghai

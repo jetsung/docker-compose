@@ -5,16 +5,16 @@ services:
     image: quay.io/minio/minio:RELEASE.2022-03-08T22-28-51Z
     command: server --console-address ":9001" /data
     environment:
-      MINIO_SITE_NAME: "Jetsung's OSS"
-      MINIO_SITE_REGION: eu-bg-1
-      MINIO_SITE_COMMENT: AlphaVPS-BG
-      MINIO_REGION_NAME: eu
+      MINIO_SITE_NAME: ${MINIO_SITE_NAME}
+      MINIO_SITE_REGION: ${MINIO_SITE_REGION}
+      MINIO_SITE_COMMENT: ${MINIO_SITE_COMMENT}
+      MINIO_REGION_NAME: ${MINIO_REGION_NAME}
       # MINIO_ACCESS_KEY: ACCESS_KEY
       # MINIO_SECRET_KEY: SECRET_KEY
-      #MINIO_ROOT_USER: minioadmin
-      #MINIO_ROOT_PASSWORD: minioadmin
-      MINIO_BROWSER_REDIRECT_URL: https://console.oss.mydomain.com
-      MINIO_SERVER_URL: https://oss.mydomain.com
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_BROWSER_REDIRECT_URL: ${MINIO_BROWSER_REDIRECT_URL}
+      MINIO_SERVER_URL: ${MINIO_SERVER_URL}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
