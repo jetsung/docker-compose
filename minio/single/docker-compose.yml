@@ -1,37 +1,30 @@
 version: '3'
 
 services:
-  minio1:
+  server:
     image: quay.io/minio/minio:RELEASE.2022-03-08T22-28-51Z
-    command: server --console-address ":9001" /mnt/data1
-    expose:
-      - "9000"
-      - "9001"
+    command: server --console-address ":9001" /data
     environment:
-      MINIO_ACCESS_KEY: test
-      MINIO_SECRET_KEY: testtest
-      #MINIO_ROOT_USER: USER
-      #MINIO_ROOT_PASSWORD: PASSWORD
-      MINIO_SERVER_URL: http://localhost:9000
+      MINIO_SITE_NAME: "Jetsung's OSS"
+      MINIO_SITE_REGION: eu-bg-1
+      MINIO_SITE_COMMENT: AlphaVPS-BG
+      MINIO_REGION_NAME: eu
+      # MINIO_ACCESS_KEY: ACCESS_KEY
+      # MINIO_SECRET_KEY: SECRET_KEY
+      #MINIO_ROOT_USER: minioadmin
+      #MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_BROWSER_REDIRECT_URL: https://console.oss.mydomain.com
+      MINIO_SERVER_URL: https://oss.mydomain.com
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
       timeout: 20s
       retries: 3
-    hostname: minio1
     volumes:
-      - data1-1:/data1
-
-  nginx:
-    image: nginx:1.19.2-alpine
-    hostname: nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - data:/data
     ports:
       - "9000:9000"
       - "9001:9001"
-    depends_on:
-      - minio1
 
 volumes:
-  data1-1:
+  data:
