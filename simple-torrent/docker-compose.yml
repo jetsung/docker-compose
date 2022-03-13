@@ -3,11 +3,13 @@
 version: '3'
 services:
   cloud-torrent:
-    image: boypt/cloud-torrent
+    image: boypt/cloud-torrent:latest
     container_name: cloud-torrent
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
+      AUTH: "username:password"
+      TITLE: "MySimpleTorrent"
     volumes:
       - './downloads:/downloads'
       - './torrents:/torrents'
