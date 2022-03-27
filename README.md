@@ -15,6 +15,7 @@
 - minio
 - mariadb 
 - mysql
+- nginx-php
 - postgres
 - qinglong 
 - rsshub
