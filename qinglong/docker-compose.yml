@@ -6,18 +6,9 @@ services:
     container_name: qinglong
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
-      - ENABLE_HANGUP=true
-      - ENABLE_TG_BOT=true
-      - ENABLE_WEB_PANEL=true
+      TZ: Asia/Shanghai
     volumes:
-      - ./data/config:/ql/config
-      - ./data/db:/ql/db 
-      - ./data/log:/ql/log 
-      - ./data/repo:/ql/repo 
-      - ./data/raw:/ql/raw 
-      - ./data/scripts:/ql/scripts 
-      - ./data/jbot:/ql/jbot             
+      - ./data:/ql/data
     ports:
       - 5700:5700
 
