@@ -1,16 +1,20 @@
 # https://www.wiz.cn/docker.html
 version: '3'
+
+volumes:
+  data:
+
 services:
   wiz:
     image: wiznote/wizserver:latest
     container_name: wiz
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
     volumes:
-      - ./data:/wiz/storage
+      - data:/wiz/storage
     ports:
-      - "127.0.0.1:30001:80"
-      - "39269:9269/tcp"
-      - "39269:9269/udp"
+      - 80:80
+      - 9269:9269/tcp
+      - 9269:9269/udp
 

@@ -1,6 +1,8 @@
 ## 配合 adminer 使用
-
 version: '3'
+
+volumes:
+  data:
 
 networks:
   db:
@@ -8,7 +10,6 @@ networks:
     external: true
     
 services:
-
   mysql:
     image: mariadb:latest
     container_name: mariadb
@@ -17,8 +18,9 @@ services:
       TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
-      - ./db:/var/lib/mysql
+      - data:/var/lib/mysql
     ports:
       - 3306:3306
     networks:
       - db
+

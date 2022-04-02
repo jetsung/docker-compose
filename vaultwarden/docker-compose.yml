@@ -1,6 +1,9 @@
 # https://github.com/dani-garcia/vaultwarden
 version: '3'
 
+volumes:
+  data:
+
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -10,6 +13,7 @@ services:
       - TZ=Asia/Shanghai
       - WEBSOCKET_ENABLED=true  # Enable WebSocket notifications.
     volumes:
-      - ./data:/data
+      - data:/data
     ports:
-      - 39081:80
+      - 80:80
+

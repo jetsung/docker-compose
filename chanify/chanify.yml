@@ -5,6 +5,6 @@ server:
     name: pusher
     datapath: /data
     register:
-        enable: false
+        enable: true
         whitelist: # whitelist    
-          - 
+          - USER_ID 

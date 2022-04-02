@@ -1,5 +1,9 @@
 # https://github.com/whyour/qinglong
 version: '3'
+
+volumes:
+  data:
+
 services:
   qinglong:
     image: whyour/qinglong:latest
@@ -8,7 +12,7 @@ services:
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ./data:/ql/data
+      - data:/ql/data
     ports:
       - 5700:5700
 

@@ -7,22 +7,23 @@ networks:
     external: true
 
 services:
-    joplin:
-        image: joplin/server:latest
-        container_name: joplin
-        depends_on:
-            - postgres
-        ports:
-            - "39001:22300"
-        restart: unless-stopped
-        environment:
-            - APP_PORT=${APP_PORT}
-            - APP_BASE_URL=${APP_BASE_URL}
-            - DB_CLIENT=pg
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            - POSTGRES_DATABASE=${POSTGRES_DATABASE}
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PORT=${POSTGRES_PORT}
-            - POSTGRES_HOST=postgres
-        networks:
-            db:
+  joplin:
+    image: joplin/server:latest
+    container_name: joplin
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - 22300:22300
+    environment:
+      - APP_PORT=${APP_PORT}
+      - APP_BASE_URL=${APP_BASE_URL}
+      - DB_CLIENT=pg
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_HOST=postgres
+    networks:
+      db:
+

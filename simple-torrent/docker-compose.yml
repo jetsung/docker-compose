@@ -1,6 +1,6 @@
 # https://github.com/boypt/simple-torrent
-
 version: '3'
+
 services:
   cloud-torrent:
     image: boypt/cloud-torrent:latest
@@ -8,10 +8,11 @@ services:
     restart: unless-stopped
     environment:
       TZ: Asia/Shanghai
-      AUTH: "username:password"
-      TITLE: "MySimpleTorrent"
+      AUTH: username:password
+      TITLE: MySimpleTorrent
     volumes:
-      - './downloads:/downloads'
-      - './torrents:/torrents'
+      - ./downloads:/downloads
+      - ./torrents:/torrents
     ports:
-      - '3000:3000'
+      - 3000:3000
+

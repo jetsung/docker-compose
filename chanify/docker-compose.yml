@@ -15,4 +15,5 @@ services:
       - data:/data
       - ./chanify.yml:/root/.chanify.yml
     ports:
-      - "30001:80"
+      - 80:80
+

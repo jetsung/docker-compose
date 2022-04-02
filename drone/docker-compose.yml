@@ -5,36 +5,37 @@ volumes:
   server-data:
 
 services:
-    drone-server:
-        image: 'drone/drone:2'
-        container_name: drone-server
-        restart: unless-stopped
-        volumes:
-            - server-data:/data
-        environment:
-            - TZ=Asia/Shanghai
-            - DRONE_GITEA_SERVER=${DRONE_GITEA_SERVER}
-            - DRONE_GITEA_CLIENT_ID=${DRONE_GITEA_CLIENT_ID}
-            - DRONE_GITEA_CLIENT_SECRET=${DRONE_GITEA_CLIENT_SECRET}
-            - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
-            - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
-            - DRONE_SERVER_PROTO=https
-        ports:
-            - '30003:80'
-            - '30004:443'
+  drone-server:
+    image: 'drone/drone:2'
+    container_name: drone-server
+    restart: unless-stopped
+    volumes:
+      - server-data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - DRONE_GITEA_SERVER=${DRONE_GITEA_SERVER}
+      - DRONE_GITEA_CLIENT_ID=${DRONE_GITEA_CLIENT_ID}
+      - DRONE_GITEA_CLIENT_SECRET=${DRONE_GITEA_CLIENT_SECRET}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
+      - DRONE_SERVER_PROTO=https
+    ports:
+      - 80:80
+      - 443:443
     
-    drone-runner:
-        image: 'drone/drone-runner-docker:1'
-        container_name: drone-runner
-        restart: unless-stopped
-        depends_on:
-          - drone-server
-        volumes:
-            - '/var/run/docker.sock:/var/run/docker.sock'
-        environment:
-            - TZ=Asia/Shanghai
-            - DRONE_RPC_PROTO=http
-            - DRONE_RPC_HOST=drone-server
-            - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
-            - DRONE_RUNNER_CAPACITY=2
-            - DRONE_RUNNER_NAME=my-drone-runner
+  drone-runner:
+    image: 'drone/drone-runner-docker:1'
+    container_name: drone-runner
+    restart: unless-stopped
+    depends_on:
+      - drone-server
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    environment:
+      - TZ=Asia/Shanghai
+      - DRONE_RPC_PROTO=http
+      - DRONE_RPC_HOST=drone-server
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_RUNNER_CAPACITY=2
+      - DRONE_RUNNER_NAME=my-drone-runner
+

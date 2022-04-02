@@ -7,13 +7,12 @@ networks:
     external: true
 
 services:
-
   adminer:
     image: adminer:latest
     container_name: adminer
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
     ports:
       - 8080:8080
     networks:

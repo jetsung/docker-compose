@@ -1,12 +1,13 @@
 # https://github.com/skiy/docker-git
 version: '3'
+
 services:
   git:
     image: devcto/git:latest
-    container_name: git-alpine
+    container_name: git
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
     volumes:
       - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh

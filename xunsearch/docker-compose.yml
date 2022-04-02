@@ -10,9 +10,10 @@ services:
     container_name: xunsearch
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
     volumes:
       - data:/usr/local/xunsearch/data
     ports:
-      - 18383:8383 
-      - 18384:8384
+      - 8383:8383 
+      - 8384:8384
+

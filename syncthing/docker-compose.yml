@@ -1,5 +1,9 @@
 # https://github.com/syncthing/syncthing/blob/main/README-Docker.md
 version: "3"
+
+volumes:
+  data:
+
 services:
   syncthing:
     image: syncthing/syncthing:latest
@@ -10,7 +14,8 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - ./data:/var/syncthing
+      - data:/var/syncthing
     ports:
       - 8384:8384
       - 22000:22000
+
