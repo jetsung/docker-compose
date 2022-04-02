@@ -6,6 +6,7 @@
 - adminer
 - aliyunpan-webdav
 - bark
+- chanify
 - drone
 - emqx   
 - git 

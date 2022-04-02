@@ -2,7 +2,7 @@
 version: '3'
 
 volumes:
-  server-data:
+  data:
 
 services:
   bark:
@@ -10,8 +10,8 @@ services:
     container_name: bark
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
     volumes:
-      - server-data:/data
+      - data:/data
     ports:
       - "30001:8080"

@@ -1,0 +1,18 @@
+# https://github.com/chanify/chanify
+version: '3'
+
+volumes:
+  data:
+
+services:
+  chanify:
+    image: wizjin/chanify:dev
+    container_name: chanify
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - data:/data
+      - ./chanify.yml:/root/.chanify.yml
+    ports:
+      - "30001:80"
