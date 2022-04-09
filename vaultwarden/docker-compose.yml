@@ -12,6 +12,12 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - WEBSOCKET_ENABLED=true  # Enable WebSocket notifications.
+      - SMTP_HOST=<smtp.domain.tld> \
+      - SMTP_FROM=<vaultwarden@domain.tld> \
+      - SMTP_PORT=587 \
+      - SMTP_SSL=true \
+      - SMTP_USERNAME=<username> \
+      - SMTP_PASSWORD=<password>
     volumes:
       - data:/data
     ports:
