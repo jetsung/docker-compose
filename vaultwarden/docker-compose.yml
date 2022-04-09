@@ -10,14 +10,15 @@ services:
     container_name: vaultwarden
     restart: unless-stopped      
     environment:
-      - TZ=Asia/Shanghai
-      - WEBSOCKET_ENABLED=true  # Enable WebSocket notifications.
-      - SMTP_HOST=<smtp.domain.tld> \
-      - SMTP_FROM=<vaultwarden@domain.tld> \
-      - SMTP_PORT=587 \
-      - SMTP_SSL=true \
-      - SMTP_USERNAME=<username> \
-      - SMTP_PASSWORD=<password>
+      TZ: Asia/Shanghai
+      WEBSOCKET_ENABLED: true  # Enable WebSocket notifications.
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_FROM: ${SMTP_FROM}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_SSL: ${SMTP_SSL}
+      SMTP_EXPLICIT_TLS: ${SMTP_EXPLICIT_TLS}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
     volumes:
       - data:/data
     ports:
