@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # 中科大源
 #sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
