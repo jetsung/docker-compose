@@ -24,6 +24,7 @@
 - syncthing  
 - transfer    
 - vaultwarden   
+- vaultwarden-backup
 - wiz
 - woodpecker
 - xunsearch   
