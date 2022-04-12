@@ -12,6 +12,7 @@ services:
   backup1:
     <<: *backup-common
     environment:
+        TZ: Asia/Shanghai
         RCLONE_REMOTE_NAME: ${RCLONE_REMOTE_NAME}
         RCLONE_REMOTE_DIR: ${RCLONE_REMOTE_DIR}
         RCLONE_GLOBAL_FLAG: ${RCLONE_GLOBAL_FLAG}
@@ -33,6 +34,7 @@ services:
 #  backup2:
 #    <<: *backup-common
 #    environment:
+#        TZ: Asia/Shanghai
 #        RCLONE_REMOTE_NAME: ${B2_REMOTE_NAME}
 #        RCLONE_REMOTE_DIR: ${B2_REMOTE_DIR}
 #        RCLONE_GLOBAL_FLAG: ${RCLONE_GLOBAL_FLAG}
