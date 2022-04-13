@@ -14,6 +14,7 @@
 - gitlab-runner
 - joplin
 - minio
+- mtproxy
 - mariadb 
 - mysql
 - nginx-php

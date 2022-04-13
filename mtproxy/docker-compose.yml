@@ -1,0 +1,12 @@
+# https://github.com/3140/MTProxy
+version: '3'
+
+services:
+  mtproxy:
+    image: mtproxy/mtproxy
+    container_name: mtproxy
+    restart: unless-stopped
+    volumes:
+        - ./data:/data
+    ports:
+        - 443:443
