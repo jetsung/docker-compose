@@ -1,7 +1,7 @@
 同一 git 代码托管平台的账号，在同一台电脑上共存的解决方案
 
-- 使用教程：https://www.cnblogs.com/skiy/p/git-coexistence.html
-- Docker-Git 项目地址：https://github.com/skiy/docker-git
+- 使用教程：https://www.cnblogs.com/jetsung/p/git-coexistence.html
+- Docker-Git 项目地址：https://github.com/jetsung/docker-git
 
 ### 依赖环境
 - [Docker](https://www.docker.com/)
@@ -16,15 +16,12 @@ init.sh
 
 ### 文件说明
 `init.sh` 文件
-> GIT_USER 和 GIT_EMAIL 改为对应的信息
+> GIT_USER 和 GIT_EMAIL 环境变量值在 `.env` 文件内修改
 ```bash
 #!/bin/sh
 
 # 中科大
 #sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-
-GIT_USER=""
-GIT_EMAIL=""
 
 git config --global user.name "${GIT_USER}"
 git config --global user.email "${GIT_EMAIL}"
@@ -37,7 +34,7 @@ version: '3'
 services:
   git:
     image: devcto/git:latest
-    container_name: git-alpine
+    container_name: git
     volumes:
       - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh
@@ -60,7 +57,7 @@ services:
 ## 方式一
 1. 执行
 ```bash
-docker run --rm --name git-alpine -itd \
+docker run --rm --name git -itd \
 	-v $(pwd)/init:/app/init.sh
 	-v $(pwd)/.ssh:/root/.ssh
 	-v $(pwd)/work_code:/srv
@@ -70,18 +67,18 @@ docker run --rm --name git-alpine -itd \
 
 2. 初始化
 ```bash
-docker exec -it git-alpine sh init.sh
+docker exec -it git sh init.sh
 ```
 
 3. 进入容器，在对应的项目工程目录下执行相关的 git 命令行，即可。
 ```bash
-docker exec -it git-alpine sh
+docker exec -it git sh
 ```
 
 ### 方式二
 1. 首次使用需要执行 `docker compose up -d` 。
    
-2. 在终端窗口下执行 `docker exec -it git-alpine /bin/sh` 进入该容器。
+2. 在终端窗口下执行 `docker exec -it git /bin/sh` 进入该容器。
 
 3. 首次进入容器都需要先执行 `sh /app/init.sh` 安装依赖组件和配置信息。若 `./.ssh` 目录未存在 `SSH 密钥`，则也需要自行生成。
 

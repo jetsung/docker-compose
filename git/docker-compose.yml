@@ -1,4 +1,4 @@
-# https://github.com/skiy/docker-git
+# https://github.com/jetsung/docker-git
 version: '3'
 
 services:
@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     environment:
       TZ: Asia/Shanghai
+      GIT_USER: ${GIT_USER}
+      GIT_EMAIL: ${GIT_EMAIL}
     volumes:
       - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh
