@@ -1,3 +1,4 @@
+# 
 version: '3'
 
 services:
@@ -5,8 +6,6 @@ services:
     image: bytemark/webdav
     container_name: webdav
     restart: unless-stopped      
-    ports:
-      - "80:80"
     environment:
       TZ: Asia/Shanghai
       AUTH_TYPE: "${AUTH_TYPE}"
@@ -14,3 +13,5 @@ services:
       PASSWORD: "${PASSWORD}"
     volumes:
       - /srv/webdav:/var/lib/dav
+    ports:
+      - "80:80"
