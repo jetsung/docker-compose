@@ -26,6 +26,7 @@
 - transfer    
 - vaultwarden   
 - vaultwarden-backup
+- webdav
 - wiz
 - woodpecker
 - xunsearch   
