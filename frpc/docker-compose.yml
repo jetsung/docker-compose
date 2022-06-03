@@ -4,11 +4,10 @@ version: '3'
 services:
   frpc:
     image: devcto/frpc:latest
-    container_name: client
+    container_name: frpc
     restart: unless-stopped
     environment:
       TZ: Asia/Shanghai
     volumes:
       - "./frpc.ini:/app/frpc.ini"
     network_mode: "host"
-    
