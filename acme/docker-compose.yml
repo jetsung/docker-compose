@@ -1,5 +1,5 @@
 # https://github.com/acmesh-official/acme.sh
-version: '3'
+version: "3"
 
 services:
   acme:
@@ -7,11 +7,15 @@ services:
     container_name: acme.sh
     restart: unless-stopped
     environment:
-      - TZ=Asia/Shanghai
-      - Ali_Key=${Ali_Key}
-      - Ali_Secret=${Ali_Secret}
+      TZ: Asia/Shanghai
+
+      CF_Token: ${CF_Token}
+      CF_Account_ID: ${CF_Account_ID}
+      CF_Zone_ID: ${CF_Zone_ID}
+      Ali_Key: ${Ali_Key}
+      Ali_Secret: ${Ali_Secret}
     volumes:
-      - ./out:/acme.sh
-      - ./ssl:/data/ssl
+      - /srv/acme/out:/acme.sh
+      - /srv/acme/ssl:/data/ssl
     command: ["daemon"]
 
