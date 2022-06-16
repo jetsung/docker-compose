@@ -1,0 +1,37 @@
+# https://github.com/mindoc-org/mindoc/blob/master/docker-compose.yml
+version: "3"
+
+networks:
+  web:
+    external: true
+
+services:
+  mindoc:
+    image: registry.cn-hangzhou.aliyuncs.com/mindoc-org/mindoc:v2.1-beta.6
+    container_name: mindoc
+    privileged: false
+    restart: unless-stopped
+    volumes:
+      - /srv/mindoc:/mindoc-sync-host
+    environment:
+      - MINDOC_RUN_MODE=${MINDOC_RUN_MODE}
+      - MINDOC_DB_ADAPTER=${MINDOC_DB_ADAPTER}
+      - MINDOC_DB_HOST=${MINDOC_DB_HOST}
+      - MINDOC_DB_DATABASE=${MINDOC_DB_DATABASE}
+      - MINDOC_DB_USERNAME=${MINDOC_DB_USERNAME}
+      - MINDOC_DB_PASSWORD=${MINDOC_DB_PASSWORD}
+      - MINDOC_CACHE=${MINDOC_CACHE}
+      - MINDOC_CACHE_PROVIDER=${MINDOC_CACHE_PROVIDER}
+      - MINDOC_ENABLE_EXPORT=${MINDOC_ENABLE_EXPORT}
+      - MINDOC_BASE_URL=${MINDOC_BASE_URL}
+      - MINDOC_CDN_IMG_URL=${MINDOC_CDN_IMG_URL}
+      - MINDOC_CDN_CSS_URL=${MINDOC_CDN_CSS_URL}
+      - MINDOC_CDN_JS_URL=${MINDOC_CDN_JS_URL}
+    ports:
+      - ${MINDOC_HOST}:8181
+
+    networks:
+      web:
+    dns:
+      - 223.5.5.5
+      - 223.6.6.6

@@ -14,10 +14,12 @@
 - gitlab-runner
 - joplin
 - minio
+- mindoc
 - mariadb 
 - mysql
 - nginx-php
 - postgres
+- qbittorrent
 - qinglong 
 - rsshub
 - simple-torrent  
