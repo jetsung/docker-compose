@@ -4,7 +4,8 @@
 
 - acme
 - adminer
-- aliyunpan-webdav
+- aliyundrive
+- aliyunpan
 - bark
 - chanify
 - drone

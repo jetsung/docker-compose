@@ -28,7 +28,7 @@ services:
       - MINDOC_CDN_CSS_URL=${MINDOC_CDN_CSS_URL}
       - MINDOC_CDN_JS_URL=${MINDOC_CDN_JS_URL}
     ports:
-      - ${MINDOC_HOST}:8181
+      - ${SERV_PORT}:8181
 
     networks:
       web:

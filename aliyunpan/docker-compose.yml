@@ -3,7 +3,7 @@ version: '3'
 
 services:
   webdav:
-    image: tickstep/aliyunpan-webdav:v0.1.3
+    image: tickstep/aliyunpan-webdav:v0.1.5
     container_name: aliyunpan-webdav
     restart: unless-stopped
     environment:
@@ -17,9 +17,9 @@ services:
       # 指定网盘文件夹作为webdav服务根目录
       - ALIYUNPAN_PAN_DIR=${ALIYUNPAN_PAN_DIR}
       # 上传下载链接类型：1-默认 2-阿里ECS环境(ECS必须是经典网络类型)
-      - ALIYUNPAN_TRANSFER_URL_TYPE=1
+      - ALIYUNPAN_TRANSFER_URL_TYPE=${ALIYUNPAN_TRANSFER_URL_TYPE}
       # 上传数据块大小，单位为KB，默认为1024KB，建议范围1024KB~10240KB
-      - ALIYUNPAN_BLOCK_SIZE=10240
+      - ALIYUNPAN_BLOCK_SIZE=${ALIYUNPAN_BLOCK_SIZE}
     ports:
-      - 23077:23077
+      - ${SERV_PORT}:23077
 
