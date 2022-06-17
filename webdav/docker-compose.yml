@@ -6,11 +6,8 @@ services:
     image: bytemark/webdav
     container_name: webdav
     restart: unless-stopped      
-    environment:
-      TZ: Asia/Shanghai
-      AUTH_TYPE: "${AUTH_TYPE}"
-      USERNAME: "${USERNAME}"
-      PASSWORD: "${PASSWORD}"
+    env_file:
+      - ./.env
     volumes:
       - /srv/webdav:/var/lib/dav
     ports:

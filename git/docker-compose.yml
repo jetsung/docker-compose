@@ -6,10 +6,8 @@ services:
     image: devcto/git:latest
     container_name: git
     restart: unless-stopped
-    environment:
-      TZ: Asia/Shanghai
-      GIT_USER: ${GIT_USER}
-      GIT_EMAIL: ${GIT_EMAIL}
+    env_file:
+      - ./.env
     volumes:
       - ./init.sh:/app/init.sh
       - ./.ssh:/root/.ssh
