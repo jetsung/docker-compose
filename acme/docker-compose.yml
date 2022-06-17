@@ -6,14 +6,8 @@ services:
     image: neilpang/acme.sh
     container_name: acme.sh
     restart: unless-stopped
-    environment:
-      TZ: Asia/Shanghai
-
-      CF_Token: ${CF_Token}
-      CF_Account_ID: ${CF_Account_ID}
-      CF_Zone_ID: ${CF_Zone_ID}
-      Ali_Key: ${Ali_Key}
-      Ali_Secret: ${Ali_Secret}
+    env_file:
+      - ./.env
     volumes:
       - /srv/acme/out:/acme.sh
       - /srv/acme/ssl:/data/ssl

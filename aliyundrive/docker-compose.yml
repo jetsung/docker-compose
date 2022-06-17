@@ -6,11 +6,8 @@ services:
     image: messense/aliyundrive-webdav
     container_name: aliyundrive-webdav
     restart: unless-stopped
-    environment:
-      TZ: Asia/Shanghai
-      REFRESH_TOKEN: ${REFRESH_TOKEN}
-      WEBDAV_AUTH_USER: ${WEBDAV_AUTH_USER}
-      WEBDAV_AUTH_PASSWORD: ${WEBDAV_AUTH_PASSWORD}
+    env_file:
+      - ./.env
     ports:
       - ${SERV_PORT}:8080
 
