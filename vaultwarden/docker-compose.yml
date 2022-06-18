@@ -1,26 +1,14 @@
 # https://github.com/dani-garcia/vaultwarden
 version: '3'
 
-volumes:
-  data:
-
 services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     restart: unless-stopped      
-    environment:
-      TZ: Asia/Shanghai
-      WEBSOCKET_ENABLED: true  # Enable WebSocket notifications.
-      SMTP_HOST: ${SMTP_HOST}
-      SMTP_FROM: ${SMTP_FROM}
-      SMTP_PORT: ${SMTP_PORT}
-      SMTP_SSL: ${SMTP_SSL}
-      SMTP_EXPLICIT_TLS: ${SMTP_EXPLICIT_TLS}
-      SMTP_USERNAME: ${SMTP_USERNAME}
-      SMTP_PASSWORD: ${SMTP_PASSWORD}
+    env_file:
+      - ./.env
     volumes:
-      - data:/data
+      - /srv/vaultwarden:/data
     ports:
-      - 80:80
-
+      - ${SERV_PORT}:80

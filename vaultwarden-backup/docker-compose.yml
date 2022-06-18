@@ -7,7 +7,6 @@ x-backup-common: &backup-common
   volumes:
     - /srv/vaultwarden:/bitwarden/data/
     - /srv/vaultwarden-backup:/config/
-  network_mode: none
 
 services:
   backup1:
